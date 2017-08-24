@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+    <script type="text/javascript" src="../../assets/js/vue.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<h1>slot</h1>
+<hr>
+<div id="app">
+    <quincy>
+        <span slot="bolgUrl">{{quincyData.bolgUrl}}</span>
+        <span slot="netName">{{quincyData.netName}}</span>
+        <span slot="skill">{{quincyData.skill}}</span>
+    </quincy>
+</div>
+<template id="tep">
+    <div>
+        <p>博客地址：<slot name="bolgUrl"></slot></p>
+        <p>网名：<slot name="netName"></slot></p>
+        <p>技术类型：<slot name="skill"></slot></p>
+    </div>
+</template>
+
+<script type="text/javascript">
+    var quincy = {
+        template: '#tep'
+    };
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            quincyData: {
+                bolgUrl: 'http://jspang.com',
+                netName: 'Quincy',
+                skill: 'webapp'
+            }
+        },
+        components: {
+            'quincy': quincy
+        }
+    });
+</script>
+</body>
+</html>

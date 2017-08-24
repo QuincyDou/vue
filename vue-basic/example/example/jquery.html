@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryCombine</title>
+    <script type="text/javascript" src="../../assets/js/vue.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<h1>jQueryCombine</h1>
+<hr>
+<div id="app">
+    {{message}}
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World'
+        },
+        mounted: function () {
+            $("#app").html('Hi, I am jQuery!');
+        },
+        methods: {
+            add: function () {
+                console.log('调用了构造器内部的add方法');
+            }
+        }
+    });
+
+    app.add();
+</script>
+</body>
+</html>

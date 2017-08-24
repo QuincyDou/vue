@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event</title>
+    <script type="text/javascript" src="../../assets/js/vue.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<h1>event</h1>
+<hr>
+<div id="app">
+    <p>{{num}}</p>
+    <button @click="add">Add</button>
+</div>
+<p><button onclick="reduce()">Reduce</button></p>
+<p><button onclick="reduceOnce()">ReduceOnce</button></p>
+<p><button onclick="off()">off</button></p>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            num: 3
+        },
+        methods: {
+            add: function () {
+                this.num++;
+            }
+        }
+    });
+
+    app.$on('reduce', function () {
+        this.num--;
+    });
+
+    app.$once('reduceOnce', function () {
+        this.num--;
+    });
+
+    function reduce() {
+        app.$emit('reduce');
+    }
+
+    function reduceOnce() {
+        app.$emit('reduceOnce');
+    }
+
+    function off() {
+        app.$off('reduce');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text & v-html</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+<h1>v-text & v-html</h1>
+<hr>
+<div id="app">
+    <span>{{message}}</span> == <span v-text="message"></span><br>
+    <span>{{html}}</span> == <span v-text="html"></span><span v-html="html"></span>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '普通文本',
+            html: '<h2>HTML标签中的文本</h2>'
+        }
+    });
+</script>
+</body>
+</html>

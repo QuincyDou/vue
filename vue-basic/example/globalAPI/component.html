@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component</title>
+    <script type="text/javascript" src="../../assets/js/vue.min.js"></script>
+</head>
+<body>
+<h1>Component</h1>
+<hr>
+<div id="app">
+    <quincy></quincy>
+    <mihua :where="location"></mihua>
+</div>
+<div id="app-2">
+    <component :is="who"></component>
+    <button @click="change">change</button>
+</div>
+
+<script type="text/javascript">
+    Vue.component('quincy', {
+        template: `<p style="color:red">我是全局的quincy组件</p>`
+    });
+
+    var yuan = {
+        template: `<span style="color: white">白鹿原</span>`
+    }
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            location: '蓝田'
+        },
+        components: {
+            'mihua': {
+                template: `<p style="color:blue">我是局部的mihua组件——{{where}}——<yuan></yuan></p>`,
+                components: {
+                    'yuan': yuan
+                },
+                props: ['where']
+            }
+        }
+    });
+
+    var componentA = {
+        template: `<p style="color: red">I am component A.</p>`
+    };
+
+    var componentB = {
+        template: `<p style="color: blue">I am component B.</p>`
+    };
+
+    var componentC = {
+        template: `<p style="color: green">I am component C.</p>`
+    };
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            who: 'componentA'
+        },
+        components: {
+            'componentA': componentA,
+            'componentB': componentB,
+            'componentC': componentC
+        },
+        methods: {
+            change: function () {
+                if (this.who == 'componentA') {
+                    this.who = 'componentB';
+                } else if (this.who == 'componentB') {
+                    this.who = 'componentC';
+                } else {
+                    this.who = 'componentA';
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

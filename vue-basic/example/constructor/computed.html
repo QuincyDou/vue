@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed Option</title>
+    <script type="text/javascript" src="../../assets/js/vue.min.js"></script>
+</head>
+<body>
+<h1>computed Option</h1>
+<hr>
+<div id="app">
+    {{formatePrice}}
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            price: 100
+        },
+        computed: {
+            formatePrice: function () {
+               return '$' + this.price
+            }
+        }
+    });
+</script>
+</body>
+</html>
