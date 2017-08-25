@@ -27,7 +27,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: left;
     color: #2c3e50;
-    geight: 100%;
+    height: 100%;
   }
 
   .main{
