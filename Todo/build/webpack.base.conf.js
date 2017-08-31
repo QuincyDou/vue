@@ -24,6 +24,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'src': path.resolve(__dirname, '../src'),
+      'assets': path.resolve(__dirname, '../src/assets')
     },
     symlinks: false
   },
@@ -40,9 +42,18 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/assets/icons')],
+        options: {
+          symbolId: 'icon-[name]'
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
-        options: {
+        exclude: [resolve('src/assets/icons')],
+        query: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
