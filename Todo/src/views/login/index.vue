@@ -45,7 +45,7 @@
           imgUrl: ''
         },
         loginRules: {
-          username: [{required: true, validator: validateEmail}],
+          username: [{required: true}],
           password: [{required: true, min: 6, message: '密码不能小于6位'}],
           captcha: [{required: true}]
         },
@@ -57,7 +57,20 @@
 
       },
       handleLogin() {
-
+        this.$refs.loginForm.validate(valid => {
+          if (valid) {
+            this.loading = true;
+            this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+              this.loading = false;
+              this.$router.push({path: '/'});
+            }).catch(() => {
+              this.loading = false;
+            })
+          } else {
+            console.log('error submit!');
+            return false;
+          }
+        })
       }
     }
   }

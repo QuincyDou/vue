@@ -24,3 +24,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 2.favicon的修改
 3.项目启动重定向至login页面
 4.页面整体布局
+5.完善登录流程
