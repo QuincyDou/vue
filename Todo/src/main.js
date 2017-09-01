@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-default/index.css'
 // import '@/components/icon-svg/index'; // 封装的svg组件
 // import '@/assets/iconfont/iconfont'; // iconfont 具体图标见https://github.com/PanJiaChen/vue-element-admin/wiki
 import '@/assets/icons'// icon
+import '@/permission'
 
 Vue.use(ElementUI)
 
