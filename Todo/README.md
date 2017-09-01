@@ -19,3 +19,8 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+1.iconfont图标svg的引入
+2.favicon的修改
+3.项目启动重定向至login页面
+4.页面整体布局
